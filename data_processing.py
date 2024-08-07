@@ -1,10 +1,36 @@
 import socket
-from data_classes import *
-import time
+from data_classes import *  
 
 class DataProcessor:
+    """
+    A class to process and collect telemetry data packets from a UDP source.
+
+    Methods:
+        collect_packet: Listens for UDP packets on a specified IP and port, processes them, and yields the data.
+    """
+
     def collect_packet(self):
+        """
+        Collects and processes UDP packets from a racing game.
+
+        This method listens for incoming UDP packets, extracts relevant data based on the packet ID,
+        and processes the data using predefined data classes. It yields the processed data for further use.
+
+        Yields:
+            dict: A dictionary containing processed telemetry data, which may include car motion data, 
+                  lap data, telemetry data, and car status data.
+        """
         def listen_udp(ip, port):
+            """
+            Listens for UDP packets and processes them.
+
+            Args:
+                ip (str): The IP address to bind to.
+                port (int): The port number to bind to.
+
+            Yields:
+                dict: A dictionary containing the processed data from the UDP packets.
+            """
             udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             udp_socket.bind((ip, port))
 
@@ -40,8 +66,7 @@ class DataProcessor:
         try:
             for data in listen_udp("127.0.0.1", 20777):
                 cols = {
-                    "lap_data": ['last_lap_time_ms', 'current_lap_time_ms', 'lap_distance',
-                                 'current_lap_invalid'],
+                    "lap_data": ['last_lap_time_ms', 'current_lap_time_ms', 'lap_distance', 'current_lap_invalid'],
                     "car_motion": ['world_position_x', 'world_position_y', 'world_position_z', 'world_velocity_x',
                                    'world_velocity_y', 'world_velocity_z', 'world_forward_dir_x', 'world_forward_dir_y',
                                    'world_forward_dir_z', 'world_right_dir_x', 'world_right_dir_y', 'world_right_dir_z',
@@ -59,14 +84,11 @@ class DataProcessor:
                     if filtered_values:
                         filtered_data.update(filtered_values)
 
-                # Summing surface_type values
+                # Summing surface_type values for aggregation
                 filtered_data['surface_type'] = sum(filtered_data.get('surface_type', []))
+                # Uncomment the following line to throttle data collection
                 # time.sleep(0.33)
                 yield filtered_data
 
         except Exception as e:
             print("Data Collection Problem:", e)
-
-# data_processor = DataProcessor()
-# while True:
-#     print(next(data_processor.collect_packet()))
