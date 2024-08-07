@@ -23,10 +23,13 @@ Model Functions
 The ModelFunctions class provides utility functions for interacting with the game using a simulated gamepad and keyboard inputs. It includes methods for handling activation functions (sig_soft), checking car position relative to a target (within_deviation), simulating keyboard inputs for game state management (escape_pits and reset_world), and calculating rewards based on game data (calculate_reward). The class also includes methods to perform actions based on computed outputs (perform_action), check if the game window is open (is_window_open), and unminimize the game window if needed (unminimize_window). These functions ensure the program continues running smoothly, even if the game window is minimized.
 
 Plotting
+
 The App class provides a graphical user interface for real-time data visualization using PyQt5 and PyQtGraph. It displays two line plots: one for the model's reward and another for its speed, updating dynamically based on data from a multiprocessing-safe queue. The application resets plot data when the genome ID changes and updates plot titles with information about the current generation, genome ID, and population number. The mean frame rate is shown in a label for performance monitoring. The GUI components are styled and updated periodically to refresh the plots and label.
 
 Main Loop
+
 The main script integrates the components to create a system for training and evaluating NEAT algorithms in a simulated environment. It uses multiprocessing for concurrent data collection, screen processing, and NEAT training. Key functions include collect_packet_process for game data collection, process_screen_process for screen data capture, and process_neat_process for NEAT algorithm management. Data is stored in a MongoDB database, and genome rewards and speeds are visualized using the PyQt5 application. The script includes robust process management and exception handling.
 
 Results
+
 This project explores the feasibility of using unsupervised machine learning for self-driving within a video game context. The model successfully trained for extended periods, but encountered challenges with game control dynamics, exploration vs. exploitation balance, and lighting variations. Notably, a related supervised learning approach at the University of Virginia demonstrated effective results in a similar game version. Future efforts will focus on using Assetto Corsa, a racing simulator with customizable tracks and more consistent lighting, inspired by successful applications in TrackMania.
