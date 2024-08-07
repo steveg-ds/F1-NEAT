@@ -34,3 +34,6 @@ Results
 
 This project explores the feasibility of using unsupervised machine learning for self-driving within a video game context. The model successfully trained for extended periods, but encountered challenges with game control dynamics, exploration vs. exploitation balance, and lighting variations. Notably, a supervised learning approach taken by a team of researchers at the University of Virginia (https://youtu.be/abdOnoe2f0A?si=tB0JFFl-ZyPLSPPL) demonstrated effective results in a slghtly older F1 game indicating that success is possible. Future efforts will focus on using Assetto Corsa, a racing simulator with customizable tracks and more consistent lighting, inspired by successful applications in TrackMania (https://www.youtube.com/@yoshtm). 
 
+
+Here's a link to one of its better runs on the Las Vegas Grand Prix circuit:  https://drive.google.com/file/d/1K67EZyzcwK1NMd-efDgeFeBLFa9zTYZs/view?usp=drive_link
+
