@@ -4,15 +4,15 @@
 
 Data Collection
 
-The DataProcessor class manages the collection and processing of telemetry data from a UDP packet sent by the game. It uses the collect_packet method to listen for UDP packets, process data based on packet IDs, and yield structured data dictionaries. The listen_udp helper function handles UDP socket communication for various packet types, including car motion, lap data, telemetry data, and car status. The class converts raw binary data into meaningful attributes using predefined data classes (e.g., CarMotionData, LapData, CarTelemetryData, and CarStatusData), and supports data aggregation, such as summing surface type values for analysis. It also includes error handling for robust real-time telemetry analysis.
+The DataProcessor class manages the collection and processing of telemetry data from a UDP packet sent by the game. It uses the collect_packet method to listen for UDP packets, process data based on packet IDs, and yield structured data dictionaries. The listen_udp helper function handles UDP socket communication for various packet types, including car motion, lap data, telemetry data, and car status. The class converts raw binary data into meaningful attributes using predefined data classes (e.g., CarMotionData, LapData, CarTelemetryData, and CarStatusData)
 
 Data Processing
 
-This module provides a structured approach to unpacking telemetry data. Each class interprets specific binary data packets from the game and converts them into dictionaries. The PacketHeader class extracts general information from the packet header, while CarMotionData, LapData, CarTelemetryData, and CarStatusData handle motion data, lap metrics, telemetry details, and car status indicators, respectively. PacketLapData and PacketCarMotionData aggregate these details for multiple cars, facilitating easy analysis and visualization. Each class includes a to_dict method for straightforward data conversion.
+This module provides a structured approach to unpacking telemetry data. Each class interprets specific binary data packets from the game and converts them into dictionaries. The PacketHeader class extracts general information from the packet header, while CarMotionData, LapData, CarTelemetryData, and CarStatusData handle motion data, lap metrics, telemetry details, and car status indicators, respectively. 
 
-CV
+Computer Vision (CV)
 
-The ScreenProcessor class captures and processes screen frames to detect edges, key points, and lines within a specified region of interest (ROI). This functionality simulates sensors that respond to their position relative to detected lines, helping the model navigate the track. The process_frame method captures screen content, converts it to grayscale, applies Gaussian blur, and uses Canny edge detection. It then defines a polygonal ROI, applies a mask, detects lines using Hough Line Transform, and identifies contours. Key points are calculated and visual indicators are drawn on the frame, which is displayed in a resizable window. The method returns a dictionary with the status of detected points.
+The ScreenProcessor class captures and processes screen frames to detect edges, key points, and lines within a specified region of interest (ROI). This functionality simulates sensors that respond to their position relative to detected lines, helping the model navigate the track. The process_frame method captures screen content, converts it to grayscale, applies Gaussian blur, and uses Canny edge detection. It then defines a polygonal ROI, applies a mask, detects lines using Hough Line Transform, and identifies contours. Key points are calculated and visual indicators are drawn on the frame, which is displayed in a resizable window. The method returns a dictionary with the status of detected points. The idea is to give the model some level of reference as to its positioning on the track.
 
 Database
 
