@@ -24,11 +24,11 @@ The ModelFunctions class provides utility functions for interacting with the gam
 
 Plotting
 
-The App class provides a graphical user interface for real-time data visualization using PyQt5 and PyQtGraph. It displays two line plots: one for the model's reward and another for its speed, updating dynamically based on data from a multiprocessing-safe queue. The application resets plot data when the genome ID changes and updates plot titles with information about the current generation, genome ID, and population number. The mean frame rate is shown in a label for performance monitoring. The GUI components are styled and updated periodically to refresh the plots and label.
+The App class provides a graphical user interface for real-time data visualization using PyQt5 and PyQtGraph. It displays two line plots: one for the model's reward and another for its speed, updating dynamically based on data from a multiprocessing-safe queue. The application resets plot data when the genome ID changes and updates plot titles with information about the current generation, genome ID, and population number. The mean frame rate is shown in a label for performance monitoring. 
 
 Main Loop
 
-The main script integrates the components to create a system for training and evaluating NEAT algorithms in a simulated environment. It uses multiprocessing for concurrent data collection, screen processing, and NEAT training. Key functions include collect_packet_process for game data collection, process_screen_process for screen data capture, and process_neat_process for NEAT algorithm management. Data is stored in a MongoDB database, and genome rewards and speeds are visualized using the PyQt5 application. The script includes robust process management and exception handling.
+The main script integrates the components to create a system for training and evaluating NEAT algorithms in a simulated environment. It uses multiprocessing for concurrent data collection, screen processing, and NEAT training. Key functions include collect_packet_process for game data collection, process_screen_process for screen data capture, and process_neat_process for NEAT algorithm management. Data is stored in a MongoDB database, and genome rewards and speeds are visualized using the PyQt5 application. 
 
 Results
 
