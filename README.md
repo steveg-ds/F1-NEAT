@@ -4,7 +4,7 @@
 
 Data Collection
 
-The DataProcessor class manages the collection and processing of telemetry data from a UDP packet sent by the game. It uses the collect_packet method to listen for UDP packets, process data based on packet IDs, and yield structured dictionaries. The listen_udp helper function handles UDP socket communication for various packet types, including car motion, lap data, telemetry data, and car status. The class converts raw binary data into attributes using predefined data classes,
+The DataProcessor class manages the collection and processing of telemetry data from a UDP packet sent by the game. It uses the collect_packet method to listen for UDP packets, process data based on packet IDs, and yield structured dictionaries. The listen_udp helper function handles UDP socket communication for various packet types, including car motion, lap data, telemetry data, and car status. The class converts raw binary data into attributes using predefined data classes. 
 
 Data Processing
 
