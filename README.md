@@ -4,7 +4,7 @@
 
 Data Collection
 
-The DataProcessor class manages the collection and processing of telemetry data from a UDP packet sent by the game. It uses the collect_packet method to listen for UDP packets, process data based on packet IDs, and yield structured data dictionaries. The listen_udp helper function handles UDP socket communication for various packet types, including car motion, lap data, telemetry data, and car status. The class converts raw binary data into meaningful attributes using predefined data classes (e.g., CarMotionData, LapData, CarTelemetryData, and CarStatusData)
+The DataProcessor class manages the collection and processing of telemetry data from a UDP packet sent by the game. It uses the collect_packet method to listen for UDP packets, process data based on packet IDs, and yield structured dictionaries. The listen_udp helper function handles UDP socket communication for various packet types, including car motion, lap data, telemetry data, and car status. The class converts raw binary data into attributes using predefined data classes,
 
 Data Processing
 
@@ -16,7 +16,7 @@ The ScreenProcessor class captures and processes screen frames to detect edges, 
 
 Database
 
-The MongoDB class offers an interface for managing a MongoDB database. It allows connection to a MongoDB server, creation and truncation of collections, and document insertion or retrieval. Key methods include open_connection, close_connection, insert_document, insert_documents, find_documents, and aggregate. The class supports flexible operations on specified collections and various query and aggregation tasks, making it a valuable tool for integrating MongoDB functionality into applications. All data from the telemetry processor, screen processor, and NEAT status are stored in the database.
+The MongoDB class offers an interface for managing a MongoDB database. It allows connection to a MongoDB server, creation and truncation of collections, and document insertion or retrieval. Key methods include open_connection, close_connection, insert_document, insert_documents, find_documents, and aggregate. All data from the telemetry processor, screen processor, and NEAT status are stored in the database.
 
 Model Functions
 
@@ -28,11 +28,11 @@ The App class provides a graphical user interface for real-time data visualizati
 
 Main Loop
 
-The main script integrates the components to create a system for training and evaluating NEAT algorithms in a simulated environment. It uses multiprocessing for concurrent data collection, screen processing, and NEAT training. Key functions include collect_packet_process for game data collection, process_screen_process for screen data capture, and process_neat_process for NEAT algorithm management. Data is stored in a MongoDB database, and genome rewards and speeds are visualized using the PyQt5 application. 
+The main script integrates the components to create a system for training and evaluating NEAT algorithms in a simulated environment. It uses multiprocessing for concurrent data collection, screen processing, and NEAT training. 
 
 Results
 
-This project explores the feasibility of using unsupervised machine learning for self-driving within a video game context. The model successfully trained for extended periods, but encountered challenges with game control dynamics, exploration vs. exploitation balance, and lighting variations. Notably, a supervised learning approach taken by a team of researchers at the University of Virginia (https://youtu.be/abdOnoe2f0A?si=tB0JFFl-ZyPLSPPL) demonstrated effective results in a slghtly older F1 game indicating that success is possible. Future efforts will focus on using Assetto Corsa, a racing simulator with customizable tracks and more consistent lighting, inspired by successful applications in TrackMania (https://www.youtube.com/@yoshtm). 
+This project explores the feasibility of using unsupervised machine learning for self-driving within a video game. The model successfully trained for extended periods, but encountered challenges with game control dynamics, exploration vs. exploitation balance, and lighting variations. Notably, a supervised learning approach taken by a team of researchers at the University of Virginia (https://youtu.be/abdOnoe2f0A?si=tB0JFFl-ZyPLSPPL) demonstrated effective results in a slghtly older F1 game indicating that success is possible. The next iteration will focus on using Assetto Corsa, a racing simulator with customizable tracks and more consistent lighting, inspired by successful applications in TrackMania (https://www.youtube.com/@yoshtm). 
 
 
 Here's a link to one of its better runs on the Las Vegas Grand Prix circuit:  https://drive.google.com/file/d/1K67EZyzcwK1NMd-efDgeFeBLFa9zTYZs/view?usp=drive_link
